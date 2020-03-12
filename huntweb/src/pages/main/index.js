@@ -10,6 +10,7 @@ export default class Main extends Component {
     productInfo: {},
     page: 1,
   };
+
   componentDidMount() {
     this.loadProducts();
   }
@@ -43,13 +44,13 @@ export default class Main extends Component {
   }
   render() {
     const { products, page, productInfo } = this.state;
+
     return (
       <div className="product-list">
-        {this.state.products.map(product => (
+        {products.map(product => (
           <article key={product._id}>
             <strong>{product.title}</strong>
             <p>{product.description} </p>
-
             <Link to={`/product/${product._id}`}>Acessar</Link>
           </article>
         ))}
